@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="acadplan.h" />
     <ClInclude Include="discipline.h" />
+    <ClInclude Include="myVector.h" />
     <ClInclude Include="semester.h" />
   </ItemGroup>
   <ItemGroup>

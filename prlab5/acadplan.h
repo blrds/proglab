@@ -1,6 +1,6 @@
 #pragma once
 #include<string>
-#include<vector>
+#include"myVector.h"
 #include"discipline.h"
 #include"semester.h"
 
@@ -16,7 +16,7 @@ private:
 	int target_rate, educationlvl, semester_count;
 	bool stat;
 public:
-	vector<semester>semesters;
+	myVector<semester>semesters;
 	acadplan();
 	acadplan(string id, string name, string person, int target_rate, lvl educationlvl, int semester_count);
 	const string get_id();

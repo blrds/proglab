@@ -2,7 +2,7 @@
 
 int semester::find_discipline(const string& name)//вернет позицию дисциплины в векторе или -1, если такой нет
 {
-	for (int i = 0; i < disciplines.size(); i++) {
+	for (int i = 0; i < disciplines.Size(); i++) {
 		if (disciplines[i].get_name() == name)return i;
 	}
 	return -1;
@@ -33,11 +33,8 @@ bool semester::delete_discipline(string name)//удаляет дисциплину с именем name,
 {
 	int pos = find_discipline(name);
 	if (pos != -1) {
-		vector<discipline>::iterator it;
-		it = disciplines.begin();
-		it += pos;
 		discipline_count--;
-		disciplines.erase(it);
+		disciplines.erase(pos);
 		return true;
 	}
 	return false;
@@ -51,15 +48,15 @@ const int semester::get_discipline_count()
 int semester::get_all_rate()//сумма баллов всех дисциплин за семестр
 {
 	int sum = 0;
-	for (discipline d : disciplines)
-		sum += d.get_rate();
+	for (int i = 0; i<disciplines.Size(); i++)
+		sum += disciplines[i].get_rate();
 	return sum;
 }
 
 string semester::get_all_disciplines()//строка с названиями всех дисциплин
 {
 	string str = "";
-	for (discipline d : disciplines)
-		str += d.get_name() + " ";
+	for (int i = 0; i<disciplines.Size(); i++)
+		str += disciplines[i].get_name() + " ";
 	return str;
 }

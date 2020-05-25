@@ -4,14 +4,10 @@
 
 using namespace std;
 
-acadplan::acadplan() {
-	id = "";
-	name = "";
-	person = "";
-	target_rate = NAN;
-	educationlvl = -1;
-	stat = false;
-	semester_count = 0;
+
+
+acadplan::acadplan()
+{
 }
 
 acadplan::acadplan(string id, string name, string person, int target_rate, lvl educationlvl, int semester_count) {
@@ -112,11 +108,10 @@ const string acadplan::get_stat() {
 
 bool acadplan::add_semester(int number)
 {
-	if (!stat && number >= 0 && number <= semesters.size()) {
-		vector<semester>::iterator it = semesters.begin() + number;
+	if (!stat && number >= 0 && number <= semesters.Size()) {
 		semester d(0, educationlvl);
 		semester_count++;
-		semesters.insert(it, d);
+		semesters.insert(number, d);
 		return true;
 	}
 	else return false;
@@ -124,9 +119,8 @@ bool acadplan::add_semester(int number)
 
 bool acadplan::del_semester(int semester_number)
 {
-	if (!stat && semester_number >= 0 && semester_number < semesters.size()) {
-		vector<semester>::iterator it = semesters.begin() + semester_number;
-		semesters.erase(it);
+	if (!stat && semester_number >= 0 && semester_number < semesters.Size()) {
+		semesters.erase(semester_number);
 		semester_count--;
 		return true;
 	}
@@ -157,15 +151,15 @@ bool acadplan::fulled() {
 	if (target_rate != get_sum_rate()) return false;
 	if (educationlvl < 0 && educationlvl >= 3)return false;
 	if (semester_count <= 0)return false;
-	for (semester d : semesters)
-		if (d.get_discipline_count() <= 0)return false;
+	for(int i=0;i<semesters.Size();i++)
+		if (semesters[i].get_discipline_count() <= 0)return false;
 	return true;
 }
 
 int acadplan::get_sum_rate()
 {
 	int sum = 0;
-	for (semester d : semesters)
-		sum += d.get_all_rate();
+	for (int i = 0; i<semesters.Size(); i++)
+		sum += semesters[i].get_all_rate();
 	return sum;
 }

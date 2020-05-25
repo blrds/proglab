@@ -10,7 +10,7 @@ void main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "rus");
-	acadplan a = acadplan();
+	acadplan a = acadplan("f","ff","fff",100,undergraduate, 5);
 	cout << "Запуск пустого плана\n";
 	cout << a.start() << "\n";
 	cout << "\nЗаполнение и вывод основных параметров\n";

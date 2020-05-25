@@ -1,9 +1,9 @@
 #include"discipline.h"
-#include<vector>
+#include"myVector.h"
 class semester
 {
 private:
-	vector<discipline>disciplines;
+	myVector<discipline>disciplines;
 	int discipline_count, educate_lvl;
 	int find_discipline(const string& name);
 public:
