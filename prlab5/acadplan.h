@@ -1,20 +1,6 @@
-#pragma once
-#include<string>
-#include"myVector.h"
-#include"discipline.h"
 #include"semester.h"
 
-using namespace std;
-
-enum lvl {
-	undergraduate, magistracy, postgraduate
-};
-
 class acadplan {
-private:
-	string id, name, person;
-	int target_rate, educationlvl, semester_count;
-	bool stat;
 public:
 	myVector<semester>semesters;
 	acadplan();
@@ -37,5 +23,8 @@ public:
 	void stop();
 	int get_sum_rate();
 private:
+	string id, name, person;
+	int target_rate, educationlvl, semester_count;
+	bool stat;
 	bool fulled();
 };

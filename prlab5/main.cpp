@@ -1,5 +1,4 @@
 #include "acadplan.h"
-#include<string>
 #include<windows.h>
 #include<locale.h>
 #include<iostream>
