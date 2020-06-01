@@ -8,17 +8,17 @@ int semester::find_discipline(const string& name)//вернет позицию дисциплины в в
 	return -1;
 }
 
-semester::semester() : discipline_count(0), educate_lvl(0)
+semester::semester() : discipline_count(0), educate_lvl(lvl(0))
 {
 }
 
-semester::semester(int discipline_count, int educate_lvl)
+semester::semester(int discipline_count, lvl educate_lvl)
 {
 	if (discipline_count == 0)this->discipline_count = discipline_count;
 	if (educate_lvl >= 0 && educate_lvl<3)this->educate_lvl = educate_lvl;
 }
 
-bool semester::add_discipline(string name, int rate, int educate_lvl)//добавит дисциплину, если ее имя не пустое, кол-во баллов больше 0, ступень образования совподает с акад.планом,
+bool semester::add_discipline(string name, int rate, lvl educate_lvl)//добавит дисциплину, если ее имя не пустое, кол-во баллов больше 0, ступень образования совподает с акад.планом,
 {//дисциплины с таким именем еще нет
 	if (name != "" && rate > 0 && educate_lvl == this->educate_lvl && find_discipline(name) == -1) {
 		discipline d(name, rate, educate_lvl);
@@ -59,4 +59,12 @@ string semester::get_all_disciplines()//строка с названиями всех дисциплин
 	for (int i = 0; i<disciplines.Size(); i++)
 		str += disciplines[i].get_name() + " ";
 	return str;
+}
+
+semester semester::operator=(const semester &a)
+{
+	disciplines = a.disciplines;
+	discipline_count = a.discipline_count;
+	educate_lvl = a.educate_lvl;
+	return *this;
 }

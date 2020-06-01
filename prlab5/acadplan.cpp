@@ -1,4 +1,4 @@
-#include "acadplan.h"
+п»ї#include "acadplan.h"
 #include<iostream>
 
 using namespace std;
@@ -71,21 +71,21 @@ bool acadplan::set_target_rate(int new_target_rate) {
 		return true;
 	}
 	else {
-		cout << "Невозможно";
+		cout << "ГЌГҐГўГ®Г§Г¬Г®Г¦Г­Г®";
 		return false;
 	}
 }
 
 const string acadplan::get_educationlvl() {
 	switch (educationlvl) {
-	case 0:return "undergraduate";
-	case 1:return "magistracy";
-	case 2:return "postgraduate";
+	case lvl(0):return "undergraduate";
+	case lvl(1):return "magistracy";
+	case lvl(2):return "postgraduate";
 	default:return "unknown";
 	}
 }
 
-bool acadplan::set_educationlvl(lvl lvl) {//при устаноке новой ступень образования все дисциплины удаляются, тк ни одни из них не будет подходить под нынешний уровень
+bool acadplan::set_educationlvl(lvl lvl) {
 	if (stat == false && (lvl >= 0 && lvl <3)) {
 		educationlvl = lvl;
 		semesters.clear();
@@ -150,7 +150,7 @@ bool acadplan::fulled() {
 	if (target_rate != get_sum_rate()) return false;
 	if (educationlvl < 0 && educationlvl >= 3)return false;
 	if (semester_count <= 0)return false;
-	for(int i=0;i<semesters.Size();i++)
+	for (int i = 0; i<semesters.Size(); i++)
 		if (semesters[i].get_discipline_count() <= 0)return false;
 	return true;
 }

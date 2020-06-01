@@ -24,7 +24,8 @@ public:
 	int get_sum_rate();
 private:
 	string id, name, person;
-	int target_rate, educationlvl, semester_count;
+	int target_rate, semester_count;
+	lvl educationlvl;
 	bool stat;
 	bool fulled();
 };

@@ -1,4 +1,5 @@
 #include "acadplan.h"
+#include<string>
 #include<windows.h>
 #include<locale.h>
 #include<iostream>
@@ -9,7 +10,7 @@ void main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "rus");
-	acadplan a = acadplan("f","ff","fff",100,undergraduate, 5);
+	acadplan a = acadplan("f","ff","fff",100,lvl(0), 1);
 	cout << "«апуск пустого плана\n";
 	cout << a.start() << "\n";
 	cout << "\n«аполнение и вывод основных параметров\n";
@@ -21,25 +22,24 @@ void main() {
 	cout << a.get_person() << "\n";
 	a.set_target_rate(100);
 	cout << a.get_target_rate() << "\n";
-	a.set_educationlvl(magistracy);
+	a.set_educationlvl(lvl(1));
 	cout << a.get_educationlvl() << "\n";
 	cout << "\nѕроверка работоспособности семестров и ступеней ¬ќ\n";
 	cout << a.get_semesters() << "\n";
-	a.add_semester(0);
 	cout << a.semesters[0].get_all_disciplines() << "\n";
-	cout << a.semesters[0].add_discipline("math", 50, 2) << "\n";//не добавитс€, тк ступень образовани€ не совпадает
-	cout << a.semesters[0].add_discipline("math", 50, 1) << "\n";//добавитс€, тк ступень образовани€ совпадает
-	cout << a.semesters[0].add_discipline("math", 50, 1) << "\n";//не добавитс€, тк уже есть такой предмет
+	cout << a.semesters[0].add_discipline("math", 50, lvl(2)) << "\n";//не добавитс€, тк ступень образовани€ не совпадает
+	cout << a.semesters[0].add_discipline("math", 50, lvl(1)) << "\n";//добавитс€, тк ступень образовани€ совпадает
+	cout << a.semesters[0].add_discipline("math", 50, lvl(1)) << "\n";//не добавитс€, тк уже есть такой предмет
 	cout << a.semesters[0].get_all_disciplines() << "\n";
 	cout << a.semesters[0].delete_discipline("ne math") << "\n";//не удалиитс€, тк такого предмета нет
 	cout << a.semesters[0].delete_discipline("math") << "\n";//удалитс€, тк такой предмет есть
 	cout << a.semesters[0].get_all_disciplines() << "\n";
-	a.semesters[0].add_discipline("math", 50, 1);
-	a.semesters[0].add_discipline("ne math", 25, 1);
+	a.semesters[0].add_discipline("math", 50, lvl(1));
+	a.semesters[0].add_discipline("ne math", 25, lvl(1));
 	a.add_semester(0);
 	cout << a.semesters[0].get_all_disciplines() << "\n";
 	cout << a.semesters[1].get_all_disciplines() << "\n";
-	a.semesters[0].add_discipline("math", 25, 1);
+	a.semesters[0].add_discipline("math", 25, lvl(1));
 	cout << a.semesters[0].get_all_rate() << "\n";
 	cout << a.semesters[1].get_all_rate() << "\n";
 	cout << "\n¬ывод всех параметров\n";

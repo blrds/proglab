@@ -3,10 +3,10 @@
 discipline::discipline() {
 	name = "";
 	rate = 0;
-	educatelvl = 0;
-};
+	educatelvl = lvl(0);
+}
 
-discipline::discipline(string name, int rate, int educatelvl)
+discipline::discipline(string name, int rate, lvl educatelvl)
 {
 	this->name = name;
 	this->rate = rate;
@@ -23,7 +23,15 @@ const int discipline::get_rate()
 	return rate;
 }
 
-const int discipline::get_educatelvl()
+const lvl discipline::get_educatelvl()
 {
 	return educatelvl;
+}
+
+discipline discipline::operator=(const discipline &a)
+{
+	name = a.name;
+	rate = a.rate;
+	educatelvl = a.educatelvl;
+	return *this;
 }
