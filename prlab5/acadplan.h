@@ -3,7 +3,6 @@
 class acadplan {
 public:
 	myVector<semester>semesters;
-	acadplan();
 	acadplan(string id, string name, string person, int target_rate, lvl educationlvl, int semester_count);
 	const string get_id();
 	bool set_id(string new_id);

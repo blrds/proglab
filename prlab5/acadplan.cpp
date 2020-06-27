@@ -3,19 +3,13 @@
 
 using namespace std;
 
-
-
-acadplan::acadplan()
-{
-}
-
 acadplan::acadplan(string id, string name, string person, int target_rate, lvl educationlvl, int semester_count) {
+	this->stat = false;
 	set_id(id);
 	set_name(name);
 	set_person(person);
 	set_target_rate(target_rate);
 	set_educationlvl(educationlvl);
-	this->stat = false;
 	if (semester_count > 0) {
 		this->semester_count = semester_count;
 		for (int i = 0; i < semester_count; i++) {
@@ -71,7 +65,6 @@ bool acadplan::set_target_rate(int new_target_rate) {
 		return true;
 	}
 	else {
-		cout << "Íåâîçìîæíî";
 		return false;
 	}
 }
